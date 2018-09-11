@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber';
+
+html, body, app-root, .site {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.site {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; // main撑满  1 0 auto
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between; // y-axis
+  align-items: center; //同一行里面个元素在y-axis怎么对齐
+}
+
+//header {
+//  background-color: green;
+//}
+//
+//footer {
+//  background-color: blue;
+//}
+
+main div {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  margin: 10px;
+}
+
+.box {
+  width: 300px;
+  height: 300px;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto; //尽可能扩展挤满空间
+}

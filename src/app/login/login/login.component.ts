@@ -4,7 +4,12 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: []
+  styles: [`
+    .text-right {
+      margin: 10px;
+      text-align: end;
+    }
+  `],
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;

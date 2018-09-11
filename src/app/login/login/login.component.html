@@ -1,0 +1,23 @@
+<form fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <input matInput type="text" placeholder="您的Email" formControlName="email">
+        <mat-error>用户名是必填项哦</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="您的密码" formControlName="password">
+        <mat-error>密码不正确哦</mat-error>
+      </mat-form-field>
+      <button mat-raised-button type="submit" [disabled]="!form.valid">登录</button>
+    </mat-card-content>
+    <mat-card-actions>
+      <p>还没有账户？<a href="">注册</a></p>
+      <p>忘记密码？<a href="">找回</a></p>
+    </mat-card-actions>
+  </mat-card>
+</form>

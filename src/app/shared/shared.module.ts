@@ -6,7 +6,7 @@ import {
   MatCardModule, MatDialogModule, MatGridListModule,
   MatIconModule,
   MatInputModule,
-  MatListModule,
+  MatListModule, MatMenuModule,
   MatSidenavModule, MatSlideToggleModule,
   MatToolbarModule
 } from '@angular/material';
@@ -25,6 +25,7 @@ import {
     MatGridListModule,
     MatDialogModule,
     MatAutocompleteModule,
+    MatMenuModule,
   ],
   exports: [
     CommonModule,
@@ -39,6 +40,7 @@ import {
     MatGridListModule,
     MatDialogModule,
     MatAutocompleteModule,
+    MatMenuModule,
   ],
   declarations: []
 })

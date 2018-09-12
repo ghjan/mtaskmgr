@@ -1,0 +1,13 @@
+<div class="tasklists">
+
+  <app-task-list *ngFor="let list of lists" class="task-lists">
+    <app-task-header></app-task-header>
+    <app-task-item *ngFor="let task of tasks">
+
+    </app-task-item>
+  </app-task-list>
+</div>
+
+<button mat-fab type="button" (click)="clicked()" class="fab-button">
+  <mat-icon>add</mat-icon>
+</button>

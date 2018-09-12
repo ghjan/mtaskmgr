@@ -6,9 +6,11 @@ import {CoreModule} from './core/core.module';
 import {SharedModule} from './shared/shared.module';
 import {LoginModule} from './login/login.module';
 import {RouterModule, Routes} from '@angular/router';
+import {ProjectModule} from './project/project.module';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'}
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'project', redirectTo: '/project', pathMatch: 'full'},
 ];
 
 @NgModule({
@@ -20,7 +22,8 @@ const routes: Routes = [
     SharedModule,
     CoreModule,
     LoginModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ProjectModule,
 
   ],
   providers: [],

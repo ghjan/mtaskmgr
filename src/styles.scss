@@ -5,6 +5,7 @@ html, body, app-root, .site {
   height: 100%;
   margin: 0;
 }
+
 //
 //.site {
 //  display: flex;
@@ -43,4 +44,8 @@ html, body, app-root, .site {
 
 .fill-remaining-space {
   flex: 1 1 auto; //尽可能扩展挤满空间
+}
+
+.full-width {
+  width: 100%;
 }

@@ -9,6 +9,21 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
       margin: 10px;
       text-align: end;
     }
+
+    mat-card {
+      width: 20em;
+      height: 25em;
+      /*margin: 5px 5px;*/
+    }
+
+    form {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
   `],
 })
 export class LoginComponent implements OnInit {
@@ -22,6 +37,10 @@ export class LoginComponent implements OnInit {
       email: ['wpcfan@163.com', Validators.compose([Validators.required, Validators.email])],
       password: ['wp123456', Validators.required]
     });
+  }
+
+  onSubmit(form, event) {
+
   }
 
 }

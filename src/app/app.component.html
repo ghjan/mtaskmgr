@@ -1,10 +1,10 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav1 mode="side">
+<mat-sidenav-container [class.myapp-dark-theme]="darkTheme" fullscreen>
+  <mat-sidenav #sidenav1 mode="over">
     <app-sidebar></app-sidebar>
   </mat-sidenav>
   <div class="site" fxLayout="column">
     <header>
-      <app-header (toggle)="sidenav1.toggle()"></app-header>
+      <app-header (toggle)="sidenav1.toggle()" (toggleDarktheme)="switchTheme($event)"></app-header>
     </header>
     <main fxFlex="1" fxLayout="column" fxLayoutAlign="center">
       <router-outlet></router-outlet>

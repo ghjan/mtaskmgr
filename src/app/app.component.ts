@@ -15,4 +15,9 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'mtaskmgr';
+  darkTheme = false;
+
+  switchTheme(dark) {
+    this.darkTheme = dark;
+  }
 }

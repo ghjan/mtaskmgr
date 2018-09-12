@@ -8,11 +8,13 @@ import 'hammerjs';
 import {DomSanitizer} from '@angular/platform-browser';
 import {loadSvgResources} from '../utils/svg.util';
 import {MatIconRegistry} from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     SharedModule,
+    HttpClientModule,
   ],
   exports: [
     HeaderComponent, FooterComponent, SidebarComponent

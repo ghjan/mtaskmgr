@@ -6,7 +6,7 @@ import {
   MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatGridListModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatNativeDateModule, MatRadioModule,
+  MatListModule, MatMenuModule, MatNativeDateModule, MatRadioModule, MatSelectModule,
   MatSidenavModule, MatSlideToggleModule,
   MatToolbarModule, MatTooltipModule
 } from '@angular/material';
@@ -31,6 +31,7 @@ import {
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
+    MatSelectModule,
   ],
   exports: [
     CommonModule,
@@ -51,6 +52,7 @@ import {
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
+    MatSelectModule,
   ],
   declarations: []
 })

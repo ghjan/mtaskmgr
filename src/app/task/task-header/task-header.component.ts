@@ -23,6 +23,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class TaskHeaderComponent implements OnInit {
   @Input() header = '';
   @Output() newTask = new EventEmitter<void>();
+  @Output() moveAll = new EventEmitter<void>();
 
   constructor() {
   }
@@ -32,5 +33,9 @@ export class TaskHeaderComponent implements OnInit {
 
   newTaskEmit() {
     this.newTask.emit();
+  }
+
+  moveAllClicked() {
+    this.moveAll.emit();
   }
 }

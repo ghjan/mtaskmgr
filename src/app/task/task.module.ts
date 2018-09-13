@@ -6,6 +6,7 @@ import {TaskHeaderComponent} from './task-header/task-header.component';
 import {SharedModule} from '../shared/shared.module';
 import {TaskRoutingModule} from './task-routing.module';
 import {NewTaskComponent} from './new-task/new-task.component';
+import {CopyTaskComponent} from './copy-task/copy-task.component';
 
 @NgModule({
   imports: [
@@ -14,8 +15,9 @@ import {NewTaskComponent} from './new-task/new-task.component';
   ],
   entryComponents: [
     NewTaskComponent,
+    CopyTaskComponent,
   ],
-  declarations: [TaskHomeComponent, TaskHeaderComponent, TaskListComponent, TaskItemComponent, NewTaskComponent],
+  declarations: [TaskHomeComponent, TaskHeaderComponent, TaskListComponent, TaskItemComponent, NewTaskComponent, CopyTaskComponent],
 })
 export class TaskModule {
 }

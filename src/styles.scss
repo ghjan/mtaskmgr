@@ -7,7 +7,6 @@ html, body, app-root, .site {
   margin: 0;
 }
 
-
 .site {
   display: flex;
   flex-direction: column;
@@ -18,8 +17,8 @@ main {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-between; // y-axis
+  justify-content: space-around;
+  align-content: space-around; // y-axis
   align-items: center; //同一行里面个元素在y-axis怎么对齐
 }
 

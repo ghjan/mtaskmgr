@@ -2,13 +2,13 @@
   <mat-sidenav #sidenav1 mode="over">
     <app-sidebar></app-sidebar>
   </mat-sidenav>
-  <div class="site" fxLayout="column">
+  <div class="site" fxFlex="1" fxLayout="column">
     <header>
       <app-header (toggleSidebarEvent)="sidenav1.toggle()" (toggleDarkthemeEvent)="switchTheme($event)"></app-header>
     </header>
     <main fxFlex="1" fxLayout="column" fxLayoutAlign="center">
-      <router-outlet></router-outlet>
-      <!--<div class="square"></div>-->
+      <!--<router-outlet></router-outlet>-->
+      <div [@square]="squareState" (click)="squareClicked()" class="square"></div>
     </main>
     <footer>
       <app-footer></app-footer>

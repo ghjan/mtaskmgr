@@ -7,23 +7,33 @@ import {SharedModule} from './shared/shared.module';
 import {LoginModule} from './login/login.module';
 import {RouterModule, Routes} from '@angular/router';
 import {ProjectModule} from './project/project.module';
+import {TaskModule} from './task/task.module';
+import {PageNotFoundComponent} from './page-not-found';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path: 'project', redirectTo: '/project', pathMatch: 'full'},
+  {path: 'projects', redirectTo: '/projects', pathMatch: 'full'},
+  {path: 'tasklists', redirectTo: '/tasklists', pathMatch: 'full'},
+  {
+    path: '**', component: PageNotFoundComponent
+  },
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     SharedModule,
     CoreModule,
     LoginModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(
+      routes,
+      {enableTracing: true}), // debugging purposes only
     ProjectModule,
+    TaskModule,
 
   ],
   providers: [],

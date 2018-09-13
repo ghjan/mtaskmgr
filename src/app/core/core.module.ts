@@ -19,7 +19,7 @@ import {HttpClientModule} from '@angular/common/http';
   exports: [
     HeaderComponent, FooterComponent, SidebarComponent
   ],
-  declarations: [HeaderComponent, FooterComponent, SidebarComponent]
+  declarations: [HeaderComponent, FooterComponent, SidebarComponent,]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf()parent: CoreModule, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {

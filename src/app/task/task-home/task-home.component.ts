@@ -3,33 +3,8 @@ import {Component, OnInit} from '@angular/core';
 @Component({
   selector: 'app-task-home',
   templateUrl: './task-home.component.html',
-  styles: [
-      `
-      .task-lists {
-        min-width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: flex-start;
-        justify-content: flex-start;
-        align-content: flex-start;
-        overflow-x: scroll;
-      }
+  styleUrls: ['./task-home.component.scss']
 
-      :host {
-        width: 100%;
-        height: 100%;
-      }
-
-      .fab-button {
-        position: fixed;
-        right: 32px;
-        bottom: 96px;
-        z-index: 998;
-      }
-    `
-  ]
 })
 export class TaskHomeComponent implements OnInit {
 

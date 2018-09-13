@@ -3,6 +3,8 @@ import {NewProjectComponent} from '../../project/new-project/new-project.compone
 import {MatDialog} from '@angular/material';
 import {NewTaskComponent} from '../new-task/new-task.component';
 import {CopyTaskComponent} from '../copy-task/copy-task.component';
+import {ConfirmDialogComponent} from '../../shared/confirm-dialog/confirm-dialog.component';
+import {NewTaskListComponent} from '../new-task-list/new-task-list.component';
 
 @Component({
   selector: 'app-task-home',
@@ -183,5 +185,33 @@ export class TaskHomeComponent implements OnInit {
 
   openEdittaskDialog(task) {
     const dialogRef = this.dialog.open(NewTaskComponent, {data: {title: '修改任务', task: task}});
+  }
+
+  openDeleteTaskDialog() {
+    const confirm = {
+      title: '删除任务列表：',
+      content: '确认要删除该任务列表？',
+      confirmAction: '确认删除'
+    };
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {data: {dialog: confirm}});
+
+  }
+
+  openEditTaskNameDialog() {
+    const confirm = {
+      title: '修改列表名称：',
+      content: '确认要修改该列表名称？',
+      confirmAction: '确认修改'
+    };
+    const dialogRef = this.dialog.open(NewTaskListComponent, {data: confirm});
+  }
+
+  handleNewTaskList($event) {
+    const confirm = {
+      title: '新建列表',
+      content: '确认要新建该列表？',
+      confirmAction: '确认新建'
+    };
+    const dialogRef = this.dialog.open(NewTaskListComponent, {data: confirm});
   }
 }

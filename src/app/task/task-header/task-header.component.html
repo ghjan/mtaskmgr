@@ -16,16 +16,16 @@
 </div>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>
+  <button mat-menu-item (click)="editListNameClicked()">
     <mat-icon>mode_edit</mat-icon>
     <span>修改列表名称</span>
   </button>
-  <button mat-menu-item (click)="moveAllEmit()">
+  <button mat-menu-item (click)="moveAllTaskEmit()">
     <mat-icon svgIcon="move"></mat-icon>
     <span>移动本列表所有内容</span>
   </button>
 
-  <button mat-menu-item>
+  <button mat-menu-item (click)="deleteTaskEmit()">
     <mat-icon>delete_forever</mat-icon>
     <span>删除列表</span>
   </button>

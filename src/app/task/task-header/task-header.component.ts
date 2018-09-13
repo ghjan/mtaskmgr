@@ -24,6 +24,8 @@ export class TaskHeaderComponent implements OnInit {
   @Input() header = '';
   @Output() newTaskEvent = new EventEmitter<void>();
   @Output() moveAllTasksEvent = new EventEmitter<void>();
+  @Output() deleteTaskEvent = new EventEmitter<void>();
+  @Output() editTaskNameEvent = new EventEmitter<void>();
 
   constructor() {
   }
@@ -35,7 +37,15 @@ export class TaskHeaderComponent implements OnInit {
     this.newTaskEvent.emit();
   }
 
-  moveAllEmit() {
+  moveAllTaskEmit() {
     this.moveAllTasksEvent.emit();
+  }
+
+  deleteTaskEmit() {
+    this.deleteTaskEvent.emit();
+  }
+
+  editListNameClicked() {
+    this.editTaskNameEvent.emit();
   }
 }

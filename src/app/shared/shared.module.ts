@@ -3,10 +3,10 @@ import {CommonModule} from '@angular/common';
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatCardModule, MatCheckboxModule, MatDialogModule, MatGridListModule,
+  MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatGridListModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule,
+  MatListModule, MatMenuModule, MatNativeDateModule, MatRadioModule,
   MatSidenavModule, MatSlideToggleModule,
   MatToolbarModule, MatTooltipModule
 } from '@angular/material';
@@ -28,6 +28,9 @@ import {
     MatMenuModule,
     MatCheckboxModule,
     MatTooltipModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
   ],
   exports: [
     CommonModule,
@@ -45,6 +48,9 @@ import {
     MatMenuModule,
     MatCheckboxModule,
     MatTooltipModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
   ],
   declarations: []
 })

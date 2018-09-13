@@ -1,9 +1,13 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output} from '@angular/core';
+import {card_anim} from '../../anims/card.anim';
 
 @Component({
   selector: 'app-project-item',
   templateUrl: './project-item.component.html',
-  styles: []
+  styles: [],
+  animations: [
+    card_anim,
+  ]
 })
 export class ProjectItemComponent implements OnInit {
 
@@ -11,6 +15,18 @@ export class ProjectItemComponent implements OnInit {
   @Output() inviteEvent = new EventEmitter<void>();
   @Output() editProjectEvent = new EventEmitter<void>();
   @Output() deleteProjectEvent = new EventEmitter<void>();
+
+  @HostBinding('@card') card_state = 'out';
+
+  @HostListener('mouseenter')
+  onMouseEnter() {
+    this.card_state = 'hover';
+  }
+
+  @HostListener('mouseleave')
+  onMouseLeaver() {
+    this.card_state = 'out';
+  }
 
   constructor() {
   }

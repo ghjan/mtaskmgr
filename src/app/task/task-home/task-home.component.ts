@@ -14,23 +14,6 @@ export class TaskHomeComponent implements OnInit {
       'name': '待办',
       'tasks': [
         {
-          'desc': '吃晚餐',
-          'taskListId': 'BkenST66lb',
-          'ownerId': '37489e0c-df34-c261-71c4-ce75357e3035',
-          'completed': true,
-          'participantIds': [
-            'BkkDvwee-',
-            '37489e0c-df34-c261-71c4-ce75357e3035'
-          ],
-          'dueDate': null,
-          'reminder': null,
-          'createDate': '2017-05-17T14:10:01.159Z',
-          'priority': 3,
-          'order': 1,
-          'remark': '',
-          'id': 1
-        },
-        {
           'id': 2,
           'desc': '赶快出发去万达',
           'taskListId': 'SkG3Ba6Tgb',
@@ -87,47 +70,6 @@ export class TaskHomeComponent implements OnInit {
           'createDate': '2017-05-24T06:12:59.718Z',
           'id': 6
         },
-        {
-          'taskListId': 'BkWpk7jGZb',
-          'desc': '库存管理 -- 出库操作 API',
-          'completed': false,
-          'ownerId': 'BkkDvwee-',
-          'participantIds': [
-            '37489e0c-df34-c261-71c4-ce75357e3035'
-          ],
-          'dueDate': '2017-07-24T16:00:00.000Z',
-          'priority': 2,
-          'remark': '',
-          'reminder': '2017-07-17T16:00:00.000Z',
-          'createDate': '2017-05-24T06:14:47.575Z',
-          'id': 7
-        },
-        {
-          'taskListId': 'H1fTyXjMWW',
-          'desc': '用户可以签入签出设备',
-          'completed': true,
-          'ownerId': '37489e0c-df34-c261-71c4-ce75357e3035',
-          'participantIds': [],
-          'dueDate': '2017-05-20T16:00:00.000Z',
-          'priority': 1,
-          'remark': '',
-          'reminder': '2017-05-20T16:00:00.000Z',
-          'createDate': '2017-05-24T06:16:24.575Z',
-          'id': 8
-        },
-        {
-          'taskListId': 'BkWpk7jGZb',
-          'desc': '什么情况啊？',
-          'completed': false,
-          'ownerId': '37489e0c-df34-c261-71c4-ce75357e3035',
-          'participantIds': [],
-          'dueDate': null,
-          'priority': 3,
-          'remark': '',
-          'reminder': null,
-          'createDate': '2017-06-15T12:03:36.290Z',
-          'id': 9
-        }
       ],
     },
     {
@@ -147,7 +89,70 @@ export class TaskHomeComponent implements OnInit {
           'createDate': '2017-05-24T06:11:48.513Z',
           'id': 5
         },
-
+        {
+          'taskListId': 'BkWpk7jGZb',
+          'desc': '库存管理 -- 出库操作 API',
+          'completed': false,
+          'ownerId': 'BkkDvwee-',
+          'participantIds': [
+            '37489e0c-df34-c261-71c4-ce75357e3035'
+          ],
+          'dueDate': '2017-07-24T16:00:00.000Z',
+          'priority': 2,
+          'remark': '',
+          'reminder': '2017-07-17T16:00:00.000Z',
+          'createDate': '2017-05-24T06:14:47.575Z',
+          'id': 7
+        },
+        {
+          'taskListId': 'BkWpk7jGZb',
+          'desc': '什么情况啊？',
+          'completed': false,
+          'ownerId': '37489e0c-df34-c261-71c4-ce75357e3035',
+          'participantIds': [],
+          'dueDate': null,
+          'priority': 3,
+          'remark': '',
+          'reminder': null,
+          'createDate': '2017-06-15T12:03:36.290Z',
+          'id': 9
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: '已经完成',
+      tasks: [
+        {
+          'desc': '吃晚餐',
+          'taskListId': 'BkenST66lb',
+          'ownerId': '37489e0c-df34-c261-71c4-ce75357e3035',
+          'completed': true,
+          'participantIds': [
+            'BkkDvwee-',
+            '37489e0c-df34-c261-71c4-ce75357e3035'
+          ],
+          'dueDate': null,
+          'reminder': null,
+          'createDate': '2017-05-17T14:10:01.159Z',
+          'priority': 3,
+          'order': 1,
+          'remark': '',
+          'id': 1
+        },
+        {
+          'taskListId': 'H1fTyXjMWW',
+          'desc': '用户可以签入签出设备',
+          'completed': true,
+          'ownerId': '37489e0c-df34-c261-71c4-ce75357e3035',
+          'participantIds': [],
+          'dueDate': '2017-05-20T16:00:00.000Z',
+          'priority': 1,
+          'remark': '',
+          'reminder': '2017-05-20T16:00:00.000Z',
+          'createDate': '2017-05-24T06:16:24.575Z',
+          'id': 8
+        },
       ],
     },
   ];

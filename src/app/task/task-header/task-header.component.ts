@@ -5,7 +5,7 @@ import {Component, Input, OnInit} from '@angular/core';
   templateUrl: './task-header.component.html',
   styles: [
       `
-      .material-icon {
+      .mat-icon, .material-icon {
         line-height: 1;
       }
 

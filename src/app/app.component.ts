@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {OverlayContainer} from '@angular/cdk/overlay';
+import {trigger, transition, state} from '@angular/animations';
 
 @Component({
   selector: 'app-root',

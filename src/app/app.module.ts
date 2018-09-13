@@ -9,6 +9,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ProjectModule} from './project/project.module';
 import {TaskModule} from './task/task.module';
 import {PageNotFoundComponent} from './page-not-found';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -34,7 +35,7 @@ const routes: Routes = [
       {enableTracing: true}), // debugging purposes only
     ProjectModule,
     TaskModule,
-
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

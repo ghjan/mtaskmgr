@@ -7,21 +7,21 @@ html, body, app-root, .site {
   margin: 0;
 }
 
-//
-//.site {
-//  display: flex;
-//  flex-direction: column;
-//}
-//
-//main {
-//  flex: 1; // main撑满  1 0 auto
-//  display: flex;
-//  flex-direction: column;
-//  flex-wrap: wrap;
-//  justify-content: space-between;
-//  align-content: space-between; // y-axis
-//  align-items: center; //同一行里面个元素在y-axis怎么对齐
-//}
+
+.site {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; // main 撑满  1 0 auto
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between; // y-axis
+  align-items: center; //同一行里面个元素在y-axis怎么对齐
+}
 
 //header {
 //  background-color: green;
@@ -49,4 +49,12 @@ html, body, app-root, .site {
 
 .full-width {
   width: 100%;
+}
+
+.square {
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: black;
 }

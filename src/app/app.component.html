@@ -7,8 +7,8 @@
       <app-header (toggleSidebarEvent)="sidenav1.toggle()" (toggleDarkthemeEvent)="switchTheme($event)"></app-header>
     </header>
     <main fxFlex="1" fxLayout="column" fxLayoutAlign="center">
-      <!--<router-outlet></router-outlet>-->
-      <div [@square]="squareState" (click)="squareClicked()" class="square"></div>
+      <router-outlet></router-outlet>
+      <!--<div [@square]="squareState" (click)="squareClicked()" class="square"></div>-->
     </main>
     <footer>
       <app-footer></app-footer>

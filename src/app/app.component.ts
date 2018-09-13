@@ -16,12 +16,12 @@ import {trigger, transition, state, style, animate} from '@angular/animations';
   `],
   animations: [
     trigger('square', [
-      state('green', style({'background-color': 'green', 'height': '100px', 'transform': 'translateX(0)'})),
+      state('green', style({'background-color': 'green', 'height': '100px', 'transform': 'translateX(-100%)'})),
       state('red', style({'background-color': 'red', 'height': '50px', 'transform': 'translateX(100%)'})),
       // state('blue', style({'background-color': 'blue', 'height': '160px', 'transform': 'translateY(0)'})),
       // state('yellow', style({'background-color': 'yellow', 'height': '80px', 'transform': 'translateY(100%)'})),
-      transition('green => red', animate('.2s 1s')),
-      transition('red => green', animate('.2s 1s')),
+      transition('green => red', animate('.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)')),
+      transition('red => green', animate('.8s ease-out')),
       // transition('green => blue', animate('.2s 1s')),
       // transition('blue => green', animate('.2s 1s')),
       // transition('green => yellow', animate('.2s 1s')),

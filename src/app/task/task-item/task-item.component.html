@@ -1,11 +1,12 @@
 <mat-list-item
   class="container"
+  (click)="itemClicked()"
   [ngClass]="{
     'priority-normal': item.priority === 3,
     'priority-important': item.priority === 2,
     'priority-emergency': item.priority === 1}"
 >
-  <mat-checkbox [checked]="item.complete" class="status"></mat-checkbox>
+  <mat-checkbox [checked]="item.complete" class="status" (click)="checkboxClicked($event)"></mat-checkbox>
 
   <div mat-line class="content" [ngClass]="{'completed': item.completed}">
     <span [matTooltip]="item.desc">{{item.desc}}</span>

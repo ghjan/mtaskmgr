@@ -8,8 +8,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output() toggle = new EventEmitter<void>();
-  @Output() toggleDarktheme = new EventEmitter<boolean>();
+  @Output() toggleSidebarEvent = new EventEmitter<void>();
+  @Output() toggleDarkthemeEvent = new EventEmitter<boolean>();
 
   constructor() {
   }
@@ -17,11 +17,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  openSidebar() {
-    this.toggle.emit();
+  sidebarEmit() {
+    this.toggleSidebarEvent.emit();
   }
 
-  onChange(checked: boolean) {
-    this.toggleDarktheme.emit(checked);
+  darkthemeEmit(checked: boolean) {
+    this.toggleDarkthemeEvent.emit(checked);
   }
 }

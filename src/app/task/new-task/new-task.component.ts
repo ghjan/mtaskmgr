@@ -1,4 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {CopyTaskComponent} from '../copy-task/copy-task.component';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {stringify} from 'querystring';
 
 @Component({
   selector: 'app-new-task',
@@ -6,6 +9,7 @@ import {Component, OnInit} from '@angular/core';
   styles: []
 })
 export class NewTaskComponent implements OnInit {
+  title = '';
   priorities = [
     {
       label: '紧急',
@@ -21,10 +25,13 @@ export class NewTaskComponent implements OnInit {
     },
   ];
 
-  constructor() {
+  constructor(@Inject(MAT_DIALOG_DATA) private data,
+              private dialogRef: MatDialogRef<CopyTaskComponent>) {
   }
 
   ngOnInit() {
+    this.title = this.data.title;
+    console.log(stringify(this.data.task));
   }
 
 }

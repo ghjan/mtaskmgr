@@ -1,4 +1,8 @@
-<app-project-item *ngFor="let project of projects" [item]="project" class="card" (inviteEvent)="openInviteDialog()">
+<app-project-item *ngFor="let project of projects"
+                  [item]="project" class="card"
+                  (inviteEvent)="openInviteDialog()"
+                  (editProjectEvent)="openUpdateDialog()"
+>
 
 </app-project-item>
 

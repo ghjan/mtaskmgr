@@ -48,11 +48,15 @@ export class ProjectListComponent implements OnInit {
   }
 
   openNewProjectDialog() {
-    const dialogRef = this.dialog.open(NewProjectComponent, {data: 'dd'});
+    const dialogRef = this.dialog.open(NewProjectComponent, {data: {title: '新建项目'}});
     dialogRef.afterClosed().subscribe(result => console.log(result));
   }
 
   openInviteDialog() {
     const dialogRef = this.dialog.open(InviteComponent);
+  }
+
+  openUpdateDialog() {
+    const dialogRef = this.dialog.open(NewProjectComponent, {data: {title: '编辑项目'}});
   }
 }

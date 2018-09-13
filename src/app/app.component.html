@@ -4,7 +4,7 @@
   </mat-sidenav>
   <div class="site" fxLayout="column">
     <header>
-      <app-header (toggle)="sidenav1.toggle()" (toggleDarktheme)="switchTheme($event)"></app-header>
+      <app-header (toggleSidebarEvent)="sidenav1.toggle()" (toggleDarkthemeEvent)="switchTheme($event)"></app-header>
     </header>
     <main fxFlex="1" fxLayout="column" fxLayoutAlign="center">
       <router-outlet></router-outlet>

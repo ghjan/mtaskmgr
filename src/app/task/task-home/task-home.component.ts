@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {NewProjectComponent} from '../../project/new-project/new-project.component';
 import {MatDialog} from '@angular/material';
 import {NewTaskComponent} from '../new-task/new-task.component';
@@ -161,21 +161,27 @@ export class TaskHomeComponent implements OnInit {
     },
   ];
 
+  @Output() editTaskEvent = new EventEmitter<void>();
+
   constructor(private  dialog: MatDialog) {
   }
 
   ngOnInit() {
   }
 
-  clicked() {
-
+  editTaskEmit() {
+    this.editTaskEvent.emit();
   }
 
   openNewtaskDialog() {
-    const dialogRef = this.dialog.open(NewTaskComponent);
+    const dialogRef = this.dialog.open(NewTaskComponent, {data: {title: '新建任务'}});
   }
 
   openCopytaskDialog() {
     const dialogRef = this.dialog.open(CopyTaskComponent, {data: {lists: this.lists}});
+  }
+
+  openEdittaskDialog(task) {
+    const dialogRef = this.dialog.open(NewTaskComponent, {data: {title: '修改任务', task: task}});
   }
 }

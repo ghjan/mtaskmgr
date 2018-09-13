@@ -9,6 +9,7 @@ export class ProjectItemComponent implements OnInit {
 
   @Input() item: any;
   @Output() inviteEvent = new EventEmitter<void>();
+  @Output() editProjectEvent = new EventEmitter<void>();
 
   constructor() {
   }
@@ -20,4 +21,7 @@ export class ProjectItemComponent implements OnInit {
     this.inviteEvent.emit();
   }
 
+  editProjectEmit() {
+    this.editProjectEvent.emit();
+  }
 }

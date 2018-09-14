@@ -1,10 +1,12 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {MatAutocomplete} from '@angular/material';
 
 @Component({
   selector: 'app-invite',
   templateUrl: './invite.component.html',
-  styles: []
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class InviteComponent implements OnInit {
 

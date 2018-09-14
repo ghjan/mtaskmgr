@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-task-header',
@@ -19,6 +19,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
       }
     `
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskHeaderComponent implements OnInit {
   @Input() header = '';

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output} from '@angular/core';
 import {card_anim} from '../../anims/card.anim';
 
 @Component({
@@ -7,7 +7,9 @@ import {card_anim} from '../../anims/card.anim';
   styles: [],
   animations: [
     card_anim,
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class ProjectItemComponent implements OnInit {
 

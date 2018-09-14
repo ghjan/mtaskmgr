@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import {CopyTaskComponent} from '../copy-task/copy-task.component';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {stringify} from 'querystring';
@@ -6,7 +6,8 @@ import {stringify} from 'querystring';
 @Component({
   selector: 'app-new-task',
   templateUrl: './new-task.component.html',
-  styles: []
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewTaskComponent implements OnInit {
   title = '';

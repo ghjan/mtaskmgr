@@ -29,11 +29,6 @@ import {listAnimation} from '../../anims/list.anim';
         overflow-x: scroll;
       }
 
-      :host {
-        width: 100%;
-        height: 100%;
-      }
-
       .fab-button {
         position: fixed;
         right: 32px;
@@ -73,7 +68,12 @@ export class ProjectListComponent implements OnInit {
     const dialogRef = this.dialog.open(NewProjectComponent, {data: {title: '新建项目'}});
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      this.projects = [...this.projects, {id: 3, name: '一个新项目', coverImg: 'assets/img/covers/3.jpg', desc: '这是一个新项目'}];
+      if (result) {
+        this.projects = [...this.projects,
+          {id: 3, name: '一个新项目', coverImg: 'assets/img/covers/3.jpg', desc: '这是一个新项目'},
+          {id: 4, name: '又一个新项目', coverImg: 'assets/img/covers/4.jpg', desc: '这是一个又新项目'}
+        ];
+      }
     });
   }
 
@@ -94,7 +94,9 @@ export class ProjectListComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {data: {dialog: confirm}});
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      this.projects = this.projects.filter(item => item.id !== project.id);
+      if (result) {
+        this.projects = this.projects.filter(item => item.id !== project.id);
+      }
     });
   }
 }

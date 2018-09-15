@@ -10,6 +10,7 @@ import {TaskModule} from './task/task.module';
 import {PageNotFoundComponent} from './page-not-found';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
+import {DragDropService} from './directive/drag-drop.service';
 
 @NgModule({
   declarations: [

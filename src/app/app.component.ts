@@ -1,6 +1,5 @@
-import {Component, HostBinding} from '@angular/core';
+import {Component} from '@angular/core';
 import {OverlayContainer} from '@angular/cdk/overlay';
-import {trigger, transition, state, style, animate} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +13,7 @@ import {trigger, transition, state, style, animate} from '@angular/animations';
       width: 300px;
     }
   `],
-  })
+})
 export class AppComponent {
   darkTheme = false;
 

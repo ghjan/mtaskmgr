@@ -32,7 +32,7 @@ export class NewTaskComponent implements OnInit {
 
   ngOnInit() {
     this.title = this.data.title;
-    console.log(stringify(this.data.task));
+    console.log('new-task,' + stringify(this.data.task));
   }
 
 }

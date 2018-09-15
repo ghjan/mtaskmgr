@@ -5,6 +5,7 @@ import {CopyTaskComponent} from '../copy-task/copy-task.component';
 import {ConfirmDialogComponent} from '../../shared/confirm-dialog/confirm-dialog.component';
 import {NewTaskListComponent} from '../new-task-list/new-task-list.component';
 import {defaultRouteAnim} from '../../anims/route.anim';
+import {TaskList} from '../../domain/task-list';
 
 @Component({
   selector: 'app-task-home',
@@ -218,5 +219,22 @@ export class TaskHomeComponent implements OnInit {
       confirmAction: '确认新建'
     };
     const dialogRef = this.dialog.open(NewTaskListComponent, {data: confirm});
+  }
+
+  handleMove(srcData: { tag: string; data: any }, taskList: TaskList) {
+    switch (srcData.tag) {
+      case 'task-item': {
+        console.log('handleMove, task-item');
+        // this.store$.dispatch(new taskActions.MoveTaskAction({taskId: <string>srcData.data.id, taskListId: <string>taskList.id}));
+        break;
+      }
+      case 'task-list': {
+        console.log('handleMove, task-list');
+        // this.store$.dispatch(new listActions.SwapOrderAction({src: <TaskList>srcData.data, target: <TaskList>taskList}));
+        break;
+      }
+      default:
+        break;
+    }
   }
 }

@@ -11,6 +11,7 @@ import {
   MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
+import {DirectivesModule} from '../directive/directives.module';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component'
     MatNativeDateModule,
     MatRadioModule,
     MatSelectModule,
+    DirectivesModule,
   ],
   exports: [
     CommonModule,
@@ -54,6 +56,7 @@ import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component'
     MatNativeDateModule,
     MatRadioModule,
     MatSelectModule,
+    DirectivesModule,
   ],
   declarations: [ConfirmDialogComponent],
   entryComponents: [ConfirmDialogComponent],

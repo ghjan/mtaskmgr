@@ -2,6 +2,10 @@
   class="container"
   [@item]="widerPriority"
   (click)="itemClicked()"
+  [app-draggable]="true"
+  [dragTag]="'task-item'"
+  [draggedClass]="'drag-start'"
+  [dragData]="item"
   [ngClass]="{
     'priority-normal': item.priority === 3,
     'priority-important': item.priority === 2,

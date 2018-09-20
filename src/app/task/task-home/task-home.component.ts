@@ -22,6 +22,8 @@ export class TaskHomeComponent implements OnInit {
     {
       'id': 1,
       'name': '待办',
+      'order': 1,
+
       'tasks': [
         {
           'id': 2,
@@ -36,7 +38,6 @@ export class TaskHomeComponent implements OnInit {
           'reminder': '2017-07-18T16:00:00.000Z',
           'createDate': '2017-05-19T10:03:58.794Z',
           'priority': 2,
-          'order': 2,
           'remark': 'something'
         },
         {
@@ -85,6 +86,7 @@ export class TaskHomeComponent implements OnInit {
     {
       id: 2,
       name: '进行中',
+      'order': 2,
       tasks: [
         {
           'taskListId': 'BkWpk7jGZb',
@@ -132,6 +134,7 @@ export class TaskHomeComponent implements OnInit {
     {
       id: 3,
       name: '已经完成',
+      'order': 3,
       tasks: [
         {
           'desc': '吃晚餐',
@@ -146,7 +149,6 @@ export class TaskHomeComponent implements OnInit {
           'reminder': null,
           'createDate': '2017-05-17T14:10:01.159Z',
           'priority': 3,
-          'order': 1,
           'remark': '',
           'id': 1
         },
@@ -221,7 +223,7 @@ export class TaskHomeComponent implements OnInit {
     const dialogRef = this.dialog.open(NewTaskListComponent, {data: confirm});
   }
 
-  handleMove(srcData: { tag: string; data: any }, taskList: TaskList) {
+  handleMove(srcData: { tag: string; data: any }, list: TaskList) {
     switch (srcData.tag) {
       case 'task-item': {
         console.log('handleMove, task-item');
@@ -230,6 +232,10 @@ export class TaskHomeComponent implements OnInit {
       }
       case 'task-list': {
         console.log('handleMove, task-list');
+        const srcList = srcData.data;
+        const tempOrder = srcList.order;
+        srcList.order = list.order;
+        list.order = tempOrder;
         // this.store$.dispatch(new listActions.SwapOrderAction({src: <TaskList>srcData.data, target: <TaskList>taskList}));
         break;
       }

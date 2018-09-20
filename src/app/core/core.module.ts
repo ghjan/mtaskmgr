@@ -10,12 +10,14 @@ import {HttpClientModule} from '@angular/common/http';
 
 import 'hammerjs';
 import {RouterModule} from '@angular/router';
+import {ServicesModule} from '../services/services.module';
 
 @NgModule({
   imports: [
     SharedModule,
     HttpClientModule,
     RouterModule,
+    ServicesModule.forRoot(),
   ],
   exports: [
     HeaderComponent,

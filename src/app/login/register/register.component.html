@@ -17,11 +17,14 @@
         <input matInput type="password" placeholder="您的密码" formControlName="password">
         <mat-error>密码不正确哦</mat-error>
       </mat-form-field>
-      <mat-grid-list cols="6" rowHeight="1:1">
-        <mat-grid-tile *ngFor="let item of items; let i = index;">
-          <mat-icon class="avatar" [svgIcon]="item"></mat-icon>
-        </mat-grid-tile>
-      </mat-grid-list>
+      <app-image-list-select
+        [useSvgIcon]="true"
+        [cols]="6"
+        [title]="'选择头像:'"
+        [items]="items"
+        rowHeight="1:1"
+        formControlName="avatar"
+      ></app-image-list-select>
       <button mat-raised-button type="submit" color="primary" [disabled]="!form.valid">注册</button>
     </mat-card-content>
     <mat-card-actions class="text-right">
@@ -30,15 +33,15 @@
     </mat-card-actions>
   </mat-card>
   <!--<mat-card>-->
-    <!--<mat-card-header>-->
-      <!--<mat-card-title>每日佳句</mat-card-title>-->
-      <!--<mat-card-subtitle>-->
-        <!--满足感在于不断的努力，而不是现有成就，全心努力定会胜利满满。-->
-      <!--</mat-card-subtitle>-->
-    <!--</mat-card-header>-->
-    <!--<img mat-card-image src="/assets/img/quote_fallback.jpg" alt="">-->
-    <!--<mat-card-content>-->
-      <!--Satisfaction lies in the effort, not in the attainment. Full effort is full victory.-->
-    <!--</mat-card-content>-->
+  <!--<mat-card-header>-->
+  <!--<mat-card-title>每日佳句</mat-card-title>-->
+  <!--<mat-card-subtitle>-->
+  <!--满足感在于不断的努力，而不是现有成就，全心努力定会胜利满满。-->
+  <!--</mat-card-subtitle>-->
+  <!--</mat-card-header>-->
+  <!--<img mat-card-image src="/assets/img/quote_fallback.jpg" alt="">-->
+  <!--<mat-card-content>-->
+  <!--Satisfaction lies in the effort, not in the attainment. Full effort is full victory.-->
+  <!--</mat-card-content>-->
   <!--</mat-card>-->
 </form>

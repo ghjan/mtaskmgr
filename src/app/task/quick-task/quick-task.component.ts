@@ -22,14 +22,7 @@ export class QuickTaskComponent implements OnInit {
       return;
     }
     this.quickTask.emit(this.desc);
-    // this.desc = '';
-  }
-
-  submit(formData, ev: Event) {
-    // submit有时候会默认刷新网页
-    ev.preventDefault();
-    console.log(JSON.stringify(formData.value));
-    console.log(JSON.stringify(formData.valid));
+    this.desc = '';
   }
 
 }

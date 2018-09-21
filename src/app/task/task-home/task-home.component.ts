@@ -242,4 +242,10 @@ export class TaskHomeComponent implements OnInit {
         break;
     }
   }
+
+  handleQuickTask(desc: string, listId: string) {
+    console.log('handleQuickTask for event quickTask, desc:' + desc + ',listId：' + listId);
+
+  }
+
 }

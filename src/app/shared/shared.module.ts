@@ -12,10 +12,13 @@ import {
 } from '@angular/material';
 import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
 import {DirectivesModule} from '../directive/directives.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
@@ -38,6 +41,8 @@ import {DirectivesModule} from '../directive/directives.module';
   ],
   exports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,

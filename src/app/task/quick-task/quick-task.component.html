@@ -1,0 +1,17 @@
+<form #f="ngForm" (submit)="submit(f, $event)">
+  <mat-form-field class="full-width" [matTooltip]="'回车或者点击右侧图标确认'">
+    <input matInput placeholder="在这里快速建立一个任务" [(ngModel)]="desc" name="desc" required/>
+    <button mat-icon-button matSuffix (click)="sendQuickTask()">
+      <mat-icon>send</mat-icon>
+    </button>
+    <mat-error>不能为空喔</mat-error>
+  </mat-form-field>
+</form>
+
+<div>
+  表单数据:{{f.value|json}}
+</div>
+
+<div>
+  表单验证状态:{{f.valid|json}}
+</div>

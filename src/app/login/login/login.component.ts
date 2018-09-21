@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -14,15 +14,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
       width: 20em;
       height: 25em;
       /*margin: 5px 5px;*/
-    }
-
-    form {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100%;
     }
   `],
 })
@@ -40,7 +31,23 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form, event) {
-
+    event.preventDefault();
+    console.log(JSON.stringify(form.value));
+    // 动态验证器 设置validators
+    console.log(typeof(this.form.controls['email'].validator));
+    // this.form.controls['email'].setValidators(this.validate);
   }
 
+  validate(c: FormControl): { [key: string]: any } {
+    if (!c.value) {
+      return null;
+    }
+    const pattern = /^wang+/;
+    if (pattern.test(c.value)) {
+      return null;
+    }
+    return {
+      emailNotValid: 'this email must start with wang'
+    };
+  }
 }

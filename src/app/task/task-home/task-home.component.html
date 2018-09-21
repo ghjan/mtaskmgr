@@ -8,8 +8,9 @@
                  [app-draggable]="true"
                  [dragTag]="'task-list'"
                  [draggedClass]="'drag-start'"
-                 [dragData]="taskList"
-                 (dropped)="handleMove($event, taskList)"
+                 [dragData]="list"
+                 (dropped)="handleMove($event, list)"
+                 [ngStyle]="{'order':list.order}"
   >
     <app-task-header [header]="list.name"
                      (newTaskEvent)="openNewtaskDialog()"

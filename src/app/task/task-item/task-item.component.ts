@@ -19,7 +19,7 @@ export class TaskItemComponent implements OnInit {
 
   widerPriority = 'out';
 
-  checkboxClicked(event) {
+  checkboxClicked(event, item) {
     event.stopPropagation();
   }
 
@@ -43,6 +43,5 @@ export class TaskItemComponent implements OnInit {
   itemClicked() {
     this.taskItemClickedEvent.emit();
   }
-
 
 }

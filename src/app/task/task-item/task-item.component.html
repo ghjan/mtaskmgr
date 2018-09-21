@@ -12,8 +12,8 @@
     'priority-emergency': item.priority === 1}"
 >
   <mat-checkbox [checked]="item.completed" class="status"
-                (click)="checkboxClicked($event, item)"
-                (change)="item.completed = !item.completed;"
+                (click)="checkboxClicked($event)"
+                (change)="item.completed = !item.completed"
   ></mat-checkbox>
 
   <div mat-line class="content"

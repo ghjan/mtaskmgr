@@ -230,6 +230,7 @@ export class TaskHomeComponent implements OnInit {
         break;
       }
       case 'task-list': {
+        console.log('handleMove, task-list');
         const srcList = srcData.data;
         const tempOrder = srcList.order;
         srcList.order = list.order;

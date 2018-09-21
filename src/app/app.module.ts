@@ -11,6 +11,7 @@ import {PageNotFoundComponent} from './page-not-found';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
 import {DragDropService} from './directive/drag-drop.service';
+import {ServicesModule} from './services/services.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {DragDropService} from './directive/drag-drop.service';
     ProjectModule,
     TaskModule,
     AppRoutingModule,
+    ServicesModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

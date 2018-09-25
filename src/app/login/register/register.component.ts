@@ -15,8 +15,8 @@ import {getDate} from 'date-fns';
     }
 
     mat-card {
-      width: 20em;
-      height: 40em;
+      width: 25em;
+      height: 35em;
     }
   `
   ]
@@ -25,18 +25,24 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
 
   items: string[];
+  private readonly avatarName = 'avatars';
 
   constructor(private fb: FormBuilder) {
-    const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-    this.items = nums.map(d => `avatars:svg-${d}`);
   }
 
   ngOnInit() {
+    const img = `${this.avatarName}:svg-${(Math.random() * 16).toFixed()}`;
+    const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+    this.items = nums.map(d => `avatars:svg-${d}`);
+
     this.form = this.fb.group({
       email: ['wpcfan@163.com', Validators.compose([Validators.required, Validators.email])],
       name: ['dd', Validators.required],
       password: ['wp123456', Validators.required],
+      repeat: [],
+      avatar: [img],
     });
+
   }
 
   onSubmit(form, event) {

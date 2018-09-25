@@ -24,7 +24,10 @@ import {ServicesModule} from '../services/services.module';
     FooterComponent,
     SidebarComponent,
   ],
-  declarations: [HeaderComponent, FooterComponent, SidebarComponent,]
+  declarations: [HeaderComponent, FooterComponent, SidebarComponent,],
+  providers: [
+    {provide: 'BASE_CONFIG', useValue: {uri: 'http://localhost:3000'}},
+  ],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf()parent: CoreModule, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {

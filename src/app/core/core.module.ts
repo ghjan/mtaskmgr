@@ -11,7 +11,6 @@ import {HttpClientModule} from '@angular/common/http';
 import 'hammerjs';
 import {RouterModule} from '@angular/router';
 import {ServicesModule} from '../services/services.module';
-import '../utils/debug.util';
 
 @NgModule({
   imports: [

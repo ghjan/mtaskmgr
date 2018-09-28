@@ -41,11 +41,18 @@ export class RegisterComponent implements OnInit {
       password: ['wp123456', Validators.required],
       repeat: [],
       avatar: [img],
+      dateOfBirth: [],
     });
 
   }
 
-  onSubmit(form, event) {
+  onSubmit(form, event: Event) {
+    event.preventDefault();  // 防止表单提交的默认行为
+    if (!form.valid) {
+      return;
+    }
+    console.log(form.value);
+
 
   }
 }

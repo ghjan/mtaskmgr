@@ -1,5 +1,5 @@
 import {Component, forwardRef, Input, OnDestroy, OnInit} from '@angular/core';
-import {ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {AbstractControl, ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {differenceInDays, differenceInMonths, differenceInYears, isBefore, parse, subDays, subMonths, subYears} from 'date-fns';
 import {combineLatest, merge, Subscription} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map, startWith} from 'rxjs/operators';
@@ -108,9 +108,9 @@ export class AgeInputComponent
 
     const birthday$ = birthday.valueChanges.pipe(
       map(d => ({date: d, from: 'birthday'})),
-      debounceTime(this.debounceTime),
+      debounceTime(this.debounceTime * 3),
       distinctUntilChanged(),
-      filter(date => birthday.valid)
+      filter(date => this.birthday_validate(birthday, date))
     );
     const ageNum$ = ageNum.valueChanges.pipe(
       startWith(ageNum.value),
@@ -122,17 +122,17 @@ export class AgeInputComponent
       debounceTime(this.debounceTime),
       distinctUntilChanged()
     );
-    const age$ = combineLatest(ageNum$, ageUnit$, (_num, _unit) =>
-      this.toDate({age: _num, unit: _unit})
+    const age$ = combineLatest(ageNum$, ageUnit$
     ).pipe(
-      map(d => ({date: d, from: 'age'})),
-      filter(_ => age.valid)
+      filter(results => results[0] >= 0),
+      map(results => ({date: this.toDate({age: results[0], unit: results[1]}), from: 'age'})),
+      filter(d => this.age_validate(age))
     );
     const merged$ = merge(birthday$, age$).pipe(filter(_ => this.form.valid));
     this.subBirth = merged$.subscribe(date => {
       const aged = this.toAge(date.date);
       if (date.from === 'birthday') {
-        if (aged.age === ageNum.value && aged.unit === ageUnit.value) {
+        if (aged.age < 0 || (aged.age === ageNum.value && aged.unit === ageUnit.value)) {
           return;
         }
         ageUnit.patchValue(aged.unit, {
@@ -151,6 +151,14 @@ export class AgeInputComponent
         }
       }
     });
+  }
+
+  private birthday_validate(birthday, date) {
+    return birthday.valid && this.toAge(date.date).age > 0;
+  }
+
+  private age_validate(age: AbstractControl) {
+    return age.valid;
   }
 
   ngOnDestroy() {
@@ -276,4 +284,5 @@ export class AgeInputComponent
       }
     }
   }
+
 }

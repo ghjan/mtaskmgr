@@ -50,6 +50,6 @@
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
-    <mat-error>年龄或单位不正确</mat-error>
+    <mat-error class="mat-body-2"  *ngIf="form.get('age')?.hasError('ageInvalid')">年龄或单位不正确</mat-error>
   </ng-container>
 </div>

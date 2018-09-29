@@ -1,5 +1,5 @@
 import {Component, forwardRef, Input, OnDestroy, OnInit} from '@angular/core';
-import {AbstractControl, ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {differenceInDays, differenceInMonths, differenceInYears, isBefore, parse, subDays, subMonths, subYears} from 'date-fns';
 import {combineLatest, merge, Subscription} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map, startWith} from 'rxjs/operators';
@@ -80,7 +80,7 @@ export class AgeInputComponent
     const initDate = convertToDate(subYears(Date.now(), 30));
     const initAge = this.toAge(initDate);
     this.form = this.fb.group({
-      birthday: [parse(initDate), this.validateDate],
+      birthday: [this.birthday_validate(initDate), parse(initDate), this.validateDate],
       age: this.fb.group(
         {
           ageNum: [initAge.age],
@@ -110,11 +110,11 @@ export class AgeInputComponent
       map(d => ({date: d, from: 'birthday'})),
       debounceTime(this.debounceTime * 3),
       distinctUntilChanged(),
-      filter(date => this.birthday_validate(birthday, date))
+      filter(date => birthday.valid)
     );
     const ageNum$ = ageNum.valueChanges.pipe(
       startWith(ageNum.value),
-      debounceTime(this.debounceTime),
+      debounceTime(this.debounceTime * 2),
       distinctUntilChanged()
     );
     const ageUnit$ = ageUnit.valueChanges.pipe(
@@ -126,7 +126,7 @@ export class AgeInputComponent
     ).pipe(
       filter(results => results[0] >= 0),
       map(results => ({date: this.toDate({age: results[0], unit: results[1]}), from: 'age'})),
-      filter(d => this.age_validate(age))
+      filter(d => age.valid)
     );
     const merged$ = merge(birthday$, age$).pipe(filter(_ => this.form.valid));
     this.subBirth = merged$.subscribe(date => {
@@ -153,13 +153,19 @@ export class AgeInputComponent
     });
   }
 
-  private birthday_validate(birthday, date) {
-    return birthday.valid && this.toAge(date.date).age > 0;
+  private birthday_validate(date) {
+    const valid = this.toAge(date.date).age > 0;
+    // if (!valid) {
+    //   this.form.get('age').setErrors({'ageInvalid': true});
+    // } else {
+    //   this.form.get('age').setErrors({});
+    // }
+    return valid;
   }
 
-  private age_validate(age: AbstractControl) {
-    return age.valid;
-  }
+  // private age_validate(age: AbstractControl) {
+  //   return age.valid;
+  // }
 
   ngOnDestroy() {
     if (this.subBirth) {

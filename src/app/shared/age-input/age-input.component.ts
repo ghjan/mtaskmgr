@@ -1,6 +1,17 @@
 import {Component, forwardRef, Input, OnDestroy, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {differenceInDays, differenceInMonths, differenceInYears, isBefore, parse, subDays, subMonths, subYears} from 'date-fns';
+import {
+  differenceInDays,
+  differenceInMonths,
+  differenceInYears,
+  isBefore,
+  isDate, isFuture,
+  isValid,
+  parse,
+  subDays,
+  subMonths,
+  subYears
+} from 'date-fns';
 import {combineLatest, merge, Subscription} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map, startWith} from 'rxjs/operators';
 import {convertToDate, isValidDate} from '../../utils/date.util';
@@ -22,15 +33,22 @@ export interface Age {
   templateUrl: './age-input.component.html',
   styles: [
       `
-      .age-num {
-        width: 50px;
-      }
-
-      .age-input {
+      .flex-row {
         display: flex;
         flex-wrap: nowrap;
         flex-direction: row;
         align-items: baseline;
+        justify-content: flex-start;
+        flex: 0 1 auto;
+      }
+
+      .inline-flex-row {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: flex-start;
+        flex: 0 1 auto;
       }
     `],
   providers: [
@@ -48,7 +66,7 @@ export interface Age {
 })
 export class AgeInputComponent
   implements ControlValueAccessor, OnInit, OnDestroy {
-  selectedUnit = AgeUnit.Year;
+  // selectedUnit = AgeUnit.Year;
   form: FormGroup;
   ageUnits = [
     {value: AgeUnit.Year, label: '岁'},
@@ -70,6 +88,20 @@ export class AgeInputComponent
   @Input()
   debounceTime = 300;
   private subBirth: Subscription;
+
+  // static validateDate(c: FormControl): { [key: string]: any } | null {
+  //   const val = c.value;
+  //   return isDate(val)
+  //   && isValid(val)
+  //   && !isFuture(val)
+  //   && differenceInYears(Date.now(), val) < 150
+  //   && isValidDate(val)
+  //     ? null
+  //     : {
+  //       birthdayInvalid: true
+  //     };
+  // }
+
   private propagateChange = (_: any) => {
   };
 
@@ -80,7 +112,10 @@ export class AgeInputComponent
     const initDate = convertToDate(subYears(Date.now(), 30));
     const initAge = this.toAge(initDate);
     this.form = this.fb.group({
-      birthday: [this.birthday_validate(initDate), parse(initDate), this.validateDate],
+      birthday: [
+        parse(initDate),
+        this.validateBirthday
+      ],
       age: this.fb.group(
         {
           ageNum: [initAge.age],
@@ -141,7 +176,6 @@ export class AgeInputComponent
           emitViewToModelChange: true
         });
         ageNum.patchValue(aged.age, {emitEvent: false});
-        this.selectedUnit = aged.unit;
         this.propagateChange(date.date);
       } else {
         const ageToCompare = this.toAge(birthday.value);
@@ -152,20 +186,6 @@ export class AgeInputComponent
       }
     });
   }
-
-  private birthday_validate(date) {
-    const valid = this.toAge(date.date).age > 0;
-    // if (!valid) {
-    //   this.form.get('age').setErrors({'ageInvalid': true});
-    // } else {
-    //   this.form.get('age').setErrors({});
-    // }
-    return valid;
-  }
-
-  // private age_validate(age: AbstractControl) {
-  //   return age.valid;
-  // }
 
   ngOnDestroy() {
     if (this.subBirth) {
@@ -205,19 +225,25 @@ export class AgeInputComponent
       return null;
     }
     return {
-      ageInvalid: true
+      dateOfBirthInvalid: true
     };
   }
 
-  validateDate(c: FormControl): { [key: string]: any } | null {
+  // 验证表单，验证结果正确返回 null 否则返回一个验证结果对象
+  validateBirthday(c: FormControl): { [key: string]: any } | null {
     const val = c.value;
-    return isValidDate(val)
-      ? null
-      : {
-        birthdayInvalid: true
-      };
+    if (!val) {
+      return null;
+    }
+    if (isValidDate(val)) {
+      return null;
+    }
+    return {
+      birthdayInvalid: true
+    };
   }
 
+  // 验证表单，验证结果正确返回 null 否则返回一个验证结果对象
   validateAge(ageNumKey: string, ageUnitKey: string) {
     return (group: FormGroup): { [key: string]: any } | null => {
       const ageNum = group.controls[ageNumKey];

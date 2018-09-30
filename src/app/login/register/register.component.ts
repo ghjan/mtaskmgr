@@ -15,8 +15,8 @@ import {getDate} from 'date-fns';
     }
 
     mat-card {
-      width: 25em;
-      height: 35em;
+      width: 42em;
+      height: 42em;
     }
   `
   ]

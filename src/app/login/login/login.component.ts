@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     console.log(JSON.stringify(form.value));
     // 动态验证器 设置validators
     console.log(typeof(this.form.controls['email'].validator));
-    // this.form.controls['email'].setValidators(this.validate);
+    // this.form.controls['email'].setValidators(this.validateBirthday);
   }
 
   validate(c: FormControl): { [key: string]: any } {

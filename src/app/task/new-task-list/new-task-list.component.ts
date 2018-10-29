@@ -20,4 +20,7 @@ export class NewTaskListComponent implements OnInit {
     this.title = this.data.title;
   }
 
+  save() {
+    // @TODO to save
+  }
 }

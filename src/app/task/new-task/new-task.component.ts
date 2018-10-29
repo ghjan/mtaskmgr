@@ -35,4 +35,7 @@ export class NewTaskComponent implements OnInit {
     console.log('new-task,' + stringify(this.data.task));
   }
 
+  save() {
+    // @TODO to save
+  }
 }
